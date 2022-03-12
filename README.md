@@ -20,6 +20,8 @@ Download: [Here](https://pjreddie.com/media/files/yolov3.weights)
 
 ### Run
 
+To run, download the above configuration and weights to the project directory.  This env was built using Anaconda.
+
 ```bash
 python main.py
 ```
