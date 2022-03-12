@@ -18,6 +18,13 @@ Download: [Here](https://pjreddie.com/media/files/yolov3.weights)
 
 ---
 
+### Run
+
+```bash
+python main.py
+```
+
+
 ## Example output
 ![Screenshot 2022-03-12 104524](https://user-images.githubusercontent.com/1228838/158025179-93666116-76ac-415c-97d2-98462fa45e8a.png)
 
