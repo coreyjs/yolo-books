@@ -48,7 +48,7 @@ class YoloNetwork:
     def show(self):
         cv2.imshow('Image', self.image)
 
-    def find_objects(self, outputs, img) -> None:
+    def find_objects(self, outputs, img, limit_objects = None) -> None:
         if self.nn is None:
             raise Exception(message='Network not initialized, call load_model')
         
@@ -62,6 +62,11 @@ class YoloNetwork:
                 convidence_value = scores[class_id]
 
                 if convidence_value > self.convidence_threshold:
+                    print(class_id)
+                    # if we are limiting our detection algo to certain objects
+                    # then we can skip ones we do not care about
+                    if limit_objects is not None and class_id not in limit_objects:
+                        continue
                     w, h = int(detect[2] * wT), int(detect[3] * hT) # pixel values
                     x, y = int((detect[0] * wT) - w/2), int((detect[1] * hT) - h/2)
                     bb.append([x, y, w, h])
